@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}  
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}" />
+    <script src="{% static "js/bootstrap.bundle.js" %}"></script>  
+    <style>
+      *{
+        padding: 0px;
+        margin: 0px;
+      }
+        #container{
+                 background-image: url("{% static 'images/background.jpg' %}");
+            }
+        #Form{
+            width:40%;
+            margin:auto;
+            padding-top: 4%;
+            padding-bottom: 15%;
+        }
+
+        #Form h4{
+            color:#f3ca20;
+            font-size: 30px;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+
+        #Form label{
+            color:#e5e5dc;
+            font-weight:400;
+            margin-bottom: 2px;
+            font-size: 17px;
+        }
+
+        #Form h3{
+            margin-top: 10px;
+            margin:auto;
+            width:40%;
+            text-align: center;
+            padding:10px;
+            border-radius: 20px;
+            color:#000000;
+            font-weight:600;
+        }
+        #Form button{
+          margin-top: 5px;
+        }
+        #searchGif{
+          width:35px;
+        }
+        .devider{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" style="margin-left: 5px;" href="#">Fake New Detection<img src="{% static 'images/search.gif' %}" id="searchGif" /> </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div id="container">
+        <form id="Form" action="result">
+          <h4>Enter The News Here</h4>
+          <div class="form-group">  
+            <label for="title">Enter title:</label>  
+            <input type="text" name="title" class="form-control" id="title">  
+          </div> 
+          <div class="form-group">  
+            <label for="article">Enter article:</label>
+            <textarea type="text" name="article" class="form-control" id="article"></textarea>    
+          </div> 
+          <div class="devider">
+            <div style="width: 40%;">
+              <hr style="color: black;" />
+            </div>
+            <div>
+              <p style="color:#f3ca20">OR</p>
+            </div>
+            <div style="width: 40%;">
+              <hr style="color: black;" />
+            </div>
+          </div>
+          <div class="form-group">  
+            <label for="url">Enter url:</label>  
+            <input type="text" name="url" class="form-control" id="url">  
+          </div> 
+          <button type="submit" class="btn btn-success">Submit</button>
+          <button class="btn btn-danger"><a style="color: white; text-decoration: none; font-weight: bold;" href="/">Cancle</a></button>
+          <br />
+          <div id="load" style="text-align: center; display: none;">
+            <img src="{% static 'images/loading3.gif' %}" style="width: 70px;"/>
+            <h3 id="load" style="font-size: 20px; font-weight: 500; color:#F1F4FFFF; width:100%">Please wait...<br/>Your data is being processed</h3>
+          </div>
+        </form>
+      </div>
+      <script>
+        window.onunload = window.onbeforeunload= function(){
+          document.getElementById("load").style.display="block";
+        }
+      </script>
+</body>
+</html> 

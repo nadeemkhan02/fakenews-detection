@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}" />
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    #container{
+        background-image: url("{% static 'images/background.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: auto;
+        padding-bottom: 40%;
+        padding-top: 5%;
+    }
+    #load{
+        width: 80%;
+        margin:auto;
+    }
+    #heading{
+        border-bottom: 1px solid black;
+        font-family: sans-serif;
+        color:#f3ca20;
+        font-size: 30px;
+        margin-bottom: 0px;
+    }
+    #result{
+        color: black;
+        text-align:center;
+        font-family: sans-serif;
+        font-size: 25px;
+        margin-top: 10px;
+        width:50%;
+        margin:auto;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-top: 10px;
+        padding: 7px 0px 7px 0px;
+    }
+</style>
+<body>
+    <div id="container">
+        <div id="load" >
+            <div id="heading" style="display: flex; flex-direction: row; justify-content: space-between;">
+                <div>
+                    <p >Result</p>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary" onclick="goBack()">&#8617 Back</button>
+                </div>
+            </div>
+            {% if finalResult == "Real News" %}
+                <p style="background-color:green;" id="result">
+                    {{finalResult}}
+                </p>
+            {% else %}
+                <p style="background-color:red;" id="result">
+                    {{finalResult}}
+                </p>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
